@@ -41,58 +41,6 @@
 
   .app { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
 
-  /* LOGIN */
-  .login-wrap {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-  }
-  .login-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 2.5rem;
-    width: 100%;
-    max-width: 380px;
-    text-align: center;
-  }
-  .login-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.4rem; }
-  .login-logo span { color: var(--accent); }
-  .login-sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; line-height: 1.5; }
-  .login-box label { display: block; font-size: 0.8rem; color: var(--muted); text-align: left; margin-bottom: 0.4rem; letter-spacing: 0.05em; text-transform: uppercase; }
-  .login-box input {
-    width: 100%;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    padding: 0.75rem 1rem;
-    outline: none;
-    transition: border-color 0.2s;
-    margin-bottom: 1.2rem;
-  }
-  .login-box input:focus { border-color: var(--accent); }
-  .login-btn {
-    width: 100%;
-    background: var(--accent);
-    color: #000;
-    border: none;
-    border-radius: 10px;
-    padding: 0.85rem;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .login-btn:hover { background: #f0d060; }
-  .login-note { margin-top: 1.2rem; font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
-
   /* HEADER */
   header {
     display: flex;
@@ -104,11 +52,8 @@
   }
   .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; }
   .logo span { color: var(--accent); }
-  .header-right { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
-  .user-badge { font-size: 0.8rem; color: var(--muted); background: var(--surface2); border: 1px solid var(--border); border-radius: 100px; padding: 0.35rem 0.85rem; }
-  .user-badge strong { color: var(--accent); }
 
-  .nav-pills { display: flex; gap: 0.5rem; }
+  .nav-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
   .pill-btn {
     background: var(--surface2);
     border: 1px solid var(--border);
@@ -122,15 +67,8 @@
     transition: all 0.2s;
   }
   .pill-btn:hover, .pill-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
-  .pill-btn.logout:hover { background: rgba(248,113,113,0.15); color: var(--red); border-color: var(--red); }
-
-  /* SYNC BAR */
-  .sync-bar { display: flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; color: var(--muted); margin-bottom: 1.2rem; height: 20px; }
-  .sync-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
-  .sync-dot.ok { background: var(--green); }
-  .sync-dot.saving { background: var(--accent); animation: pulse 1s infinite; }
-  .sync-dot.error { background: var(--red); }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .pill-btn.import-btn:hover { background: rgba(124,92,191,0.15); color: #b49de0; border-color: var(--accent2); }
+  .pill-btn.export-btn:hover { background: rgba(74,222,128,0.15); color: var(--green); border-color: var(--green); }
 
   /* VIEWS */
   .view { display: none; }
@@ -138,7 +76,13 @@
 
   /* DECKS */
   .section-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 1.2rem; }
-  .decks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+
+  .decks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
   .deck-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -171,6 +115,38 @@
   }
   .add-deck-card:hover { border-color: var(--accent); color: var(--accent); }
   .add-icon { font-size: 1.8rem; line-height: 1; }
+
+  /* Transfer banner */
+  .transfer-banner {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .transfer-banner .tb-icon { font-size: 1.8rem; flex-shrink: 0; }
+  .transfer-banner .tb-text { flex: 1; }
+  .transfer-banner .tb-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.2rem; }
+  .transfer-banner .tb-sub { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+  .transfer-banner .tb-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+  .tb-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+  }
+  .tb-btn.export { background: var(--accent); color: #000; }
+  .tb-btn.export:hover { background: #f0d060; }
+  .tb-btn.import { background: var(--surface); border: 1px solid var(--border); color: var(--text); }
+  .tb-btn.import:hover { border-color: var(--accent2); color: #b49de0; }
 
   /* CREATE/EDIT */
   .back-btn {
@@ -241,207 +217,128 @@
   .empty { text-align: center; padding: 4rem 2rem; color: var(--muted); }
   .empty-icon { font-size: 3rem; margin-bottom: 1rem; }
 
-  .spinner { width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.7s linear infinite; margin: 3rem auto; }
-  @keyframes spin { to { transform: rotate(360deg); } }
   @keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
   .view.active { animation: fadeIn 0.3s ease; }
   .deck-card { animation: fadeIn 0.3s ease both; }
+
+  /* Hidden file input */
+  #file-import { display: none; }
 </style>
 </head>
 <body>
 
-<!-- LOGIN -->
-<div id="login-screen" class="login-wrap">
-  <div class="login-box">
-    <div class="login-logo">Flash<span>Mind</span></div>
-    <div class="login-sub">Choose a username to sync your decks across all your devices automatically.</div>
-    <label for="username-input">Username</label>
-    <input type="text" id="username-input" placeholder="e.g. sarah123" autocomplete="off" autocapitalize="none"
-      onkeydown="if(event.key==='Enter')login()" />
-    <button class="login-btn" onclick="login()">Continue →</button>
-    <div class="login-note">⚠️ Your username acts as your key — pick something unique that only you'd guess. Anyone with your username can access your decks.</div>
+<div class="app">
+  <header>
+    <div class="logo">Flash<span>Mind</span></div>
+    <div class="nav-pills">
+      <button class="pill-btn active" onclick="showView('decks')">My Decks</button>
+      <button class="pill-btn" onclick="startCreate()">+ New Deck</button>
+      <button class="pill-btn export-btn" onclick="exportDecks()">⬇ Export</button>
+      <button class="pill-btn import-btn" onclick="document.getElementById('file-import').click()">⬆ Import</button>
+    </div>
+  </header>
+
+  <input type="file" id="file-import" accept=".json" onchange="importDecks(event)" />
+
+  <!-- DECKS VIEW -->
+  <div id="view-decks" class="view active">
+
+    <div class="transfer-banner">
+      <div class="tb-icon">🔄</div>
+      <div class="tb-text">
+        <div class="tb-title">Sync between devices</div>
+        <div class="tb-sub">Export your decks as a file, send it to your phone (AirDrop, email, Google Drive), then tap Import on your phone.</div>
+      </div>
+      <div class="tb-actions">
+        <button class="tb-btn export" onclick="exportDecks()">⬇ Export</button>
+        <button class="tb-btn import" onclick="document.getElementById('file-import').click()">⬆ Import</button>
+      </div>
+    </div>
+
+    <div class="section-title">Your Study Decks</div>
+    <div class="decks-grid" id="decks-grid"></div>
   </div>
-</div>
 
-<!-- MAIN APP -->
-<div id="main-app" style="display:none">
-  <div class="app">
-    <header>
-      <div class="logo">Flash<span>Mind</span></div>
-      <div class="header-right">
-        <div class="user-badge">Signed in as <strong id="user-display"></strong></div>
-        <div class="nav-pills">
-          <button class="pill-btn active" onclick="showView('decks')">My Decks</button>
-          <button class="pill-btn" onclick="startCreate()">+ New Deck</button>
-          <button class="pill-btn logout" onclick="logout()">Sign Out</button>
-        </div>
-      </div>
-    </header>
-
-    <!-- DECKS VIEW -->
-    <div id="view-decks" class="view active">
-      <div class="sync-bar">
-        <div class="sync-dot" id="sync-dot"></div>
-        <span id="sync-label">Connecting...</span>
-      </div>
-      <div class="section-title">Your Study Decks</div>
-      <div class="decks-grid" id="decks-grid"><div class="spinner"></div></div>
+  <!-- CREATE/EDIT VIEW -->
+  <div id="view-create" class="view">
+    <button class="back-btn" onclick="showView('decks')">← Back to Decks</button>
+    <div class="section-title" id="create-title">Create New Deck</div>
+    <div class="field-group">
+      <label>Deck Name</label>
+      <input type="text" id="deck-name-input" placeholder="e.g. Spanish Vocabulary" />
     </div>
+    <div class="section-title" style="margin-top:1.5rem;margin-bottom:1rem;font-size:1.1rem;">Cards</div>
+    <div class="cards-list" id="cards-list"></div>
+    <button class="btn-outline" onclick="addCardField()">+ Add Card</button>
+    <button class="btn-primary" onclick="saveDeck()">Save Deck</button>
+  </div>
 
-    <!-- CREATE/EDIT VIEW -->
-    <div id="view-create" class="view">
-      <button class="back-btn" onclick="showView('decks')">← Back to Decks</button>
-      <div class="section-title" id="create-title">Create New Deck</div>
-      <div class="field-group">
-        <label>Deck Name</label>
-        <input type="text" id="deck-name-input" placeholder="e.g. Spanish Vocabulary" />
+  <!-- STUDY VIEW -->
+  <div id="view-study" class="view">
+    <div class="study-header">
+      <button class="back-btn" onclick="showView('decks')" style="margin:0">← Exit</button>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
       </div>
-      <div class="section-title" style="margin-top:1.5rem;margin-bottom:1rem;font-size:1.1rem;">Cards</div>
-      <div class="cards-list" id="cards-list"></div>
-      <button class="btn-outline" onclick="addCardField()">+ Add Card</button>
-      <button class="btn-primary" onclick="saveDeck()">Save Deck</button>
+      <div class="progress-text" id="progress-text">0 / 0</div>
     </div>
-
-    <!-- STUDY VIEW -->
-    <div id="view-study" class="view">
-      <div class="study-header">
-        <button class="back-btn" onclick="showView('decks')" style="margin:0">← Exit</button>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
-        </div>
-        <div class="progress-text" id="progress-text">0 / 0</div>
-      </div>
-      <div id="study-content"></div>
-    </div>
+    <div id="study-content"></div>
   </div>
 </div>
 
 <script>
-  let currentUser = null;
-  let decks = [];
+  let decks = JSON.parse(localStorage.getItem('flashmind_decks') || '[]');
   let editingDeckId = null;
   let studyDeck = null;
   let studyIndex = 0, studyCorrect = 0, studyWrong = 0;
   let isFlipped = false;
-  let saveTimeout = null;
 
-  // ---- AUTH ----
-  function login() {
-    const raw = document.getElementById('username-input').value.trim().toLowerCase();
-    const val = raw.replace(/[^a-z0-9_\-]/g, '');
-    if (!val || val.length < 2) {
-      alert('Please enter a username (at least 2 characters, letters/numbers/_ or - only).');
-      return;
-    }
-    currentUser = val;
-    localStorage.setItem('flashmind_user', currentUser);
-    bootApp();
+  function save() {
+    localStorage.setItem('flashmind_decks', JSON.stringify(decks));
   }
 
-  function logout() {
-    localStorage.removeItem('flashmind_user');
-    currentUser = null; decks = [];
-    document.getElementById('main-app').style.display = 'none';
-    document.getElementById('login-screen').style.display = 'flex';
-    document.getElementById('username-input').value = '';
+  // ---- EXPORT / IMPORT ----
+  function exportDecks() {
+    if (decks.length === 0) { alert('You have no decks to export yet.'); return; }
+    const data = JSON.stringify({ version: 1, exported: new Date().toISOString(), decks }, null, 2);
+    const blob = new Blob([data], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'flashmind-decks.json';
+    a.click();
+    URL.revokeObjectURL(url);
   }
 
-  function bootApp() {
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('main-app').style.display = 'block';
-    document.getElementById('user-display').textContent = currentUser;
-    loadDecks();
-  }
+  function importDecks(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const parsed = JSON.parse(e.target.result);
+        const incoming = parsed.decks || (Array.isArray(parsed) ? parsed : null);
+        if (!incoming) { alert('Invalid file. Please use a file exported from FlashMind.'); return; }
 
-  // ---- CLOUD STORAGE ----
-  function storageKey() { return 'decks:' + currentUser; }
-
-  function setSyncStatus(state, msg) {
-    const dot = document.getElementById('sync-dot');
-    const label = document.getElementById('sync-label');
-    if (!dot) return;
-    dot.className = 'sync-dot ' + state;
-    label.textContent = msg;
-  }
-
-  async function loadDecks() {
-    setSyncStatus('saving', 'Loading your decks...');
-    try {
-      const result = await window.storage.get(storageKey());
-      decks = result ? JSON.parse(result.value) : [];
-      setSyncStatus('ok', 'Synced · ' + new Date().toLocaleTimeString());
-    } catch(e) {
-      decks = [];
-      setSyncStatus('ok', 'Ready — create your first deck!');
-    }
-    renderDecks();
-    checkLocalMigration();
-  }
-
-  function checkLocalMigration() {
-    const local = localStorage.getItem('flashmind_decks');
-    if (!local) return;
-    try {
-      const localDecks = JSON.parse(local);
-      if (!localDecks || localDecks.length === 0) return;
-      const banner = document.createElement('div');
-      banner.id = 'migrate-banner';
-      banner.style.cssText = 'background:linear-gradient(135deg,#1e1e2a,#1a1a28);border:1px solid var(--accent);border-radius:14px;padding:1rem 1.2rem;margin-bottom:1.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;animation:fadeIn 0.3s ease;';
-      banner.innerHTML = `
-        <div>
-          <div style="font-weight:600;font-size:0.95rem;margin-bottom:0.2rem;">📦 Found ${localDecks.length} deck${localDecks.length !== 1 ? 's' : ''} saved on this device</div>
-          <div style="font-size:0.8rem;color:var(--muted);">Import them into your cloud profile so they sync everywhere.</div>
-        </div>
-        <div style="display:flex;gap:0.5rem;flex-shrink:0">
-          <button onclick="migrateLocalDecks()" style="background:var(--accent);color:#000;border:none;border-radius:8px;padding:0.5rem 1rem;font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.85rem;cursor:pointer;">Import Now</button>
-          <button onclick="dismissMigration()" style="background:transparent;color:var(--muted);border:1px solid var(--border);border-radius:8px;padding:0.5rem 0.75rem;font-family:'DM Sans',sans-serif;font-size:0.85rem;cursor:pointer;">Dismiss</button>
-        </div>`;
-      const grid = document.getElementById('decks-grid');
-      grid.parentNode.insertBefore(banner, grid);
-    } catch(e) { /* ignore */ }
-  }
-
-  async function migrateLocalDecks() {
-    const local = localStorage.getItem('flashmind_decks');
-    if (!local) return;
-    try {
-      const localDecks = JSON.parse(local);
-      const existingNames = new Set(decks.map(d => d.name.toLowerCase()));
-      let added = 0;
-      localDecks.forEach(d => {
-        if (!existingNames.has(d.name.toLowerCase())) {
-          decks.push({ ...d, id: d.id || uid() });
-          added++;
-        }
-      });
-      await saveToCloud();
-      localStorage.removeItem('flashmind_decks');
-      document.getElementById('migrate-banner')?.remove();
-      renderDecks();
-      alert(`✅ Done! ${added} deck${added !== 1 ? 's' : ''} imported to your cloud profile.${added < localDecks.length ? '\n(' + (localDecks.length - added) + ' skipped — already existed in your profile)' : ''}`);
-    } catch(e) {
-      alert('Something went wrong during import. Please try again.');
-    }
-  }
-
-  function dismissMigration() {
-    document.getElementById('migrate-banner')?.remove();
-    localStorage.removeItem('flashmind_decks');
-  }
-
-  async function saveToCloud() {
-    setSyncStatus('saving', 'Saving...');
-    try {
-      await window.storage.set(storageKey(), JSON.stringify(decks));
-      setSyncStatus('ok', 'Synced · ' + new Date().toLocaleTimeString());
-    } catch(e) {
-      setSyncStatus('error', 'Sync failed — check your connection');
-    }
-  }
-
-  function scheduleSave() {
-    clearTimeout(saveTimeout);
-    saveTimeout = setTimeout(saveToCloud, 600);
+        const existingNames = new Set(decks.map(d => d.name.toLowerCase()));
+        let added = 0, skipped = 0;
+        incoming.forEach(d => {
+          if (!existingNames.has(d.name.toLowerCase())) {
+            decks.push({ ...d, id: d.id || uid() });
+            added++;
+          } else {
+            skipped++;
+          }
+        });
+        save();
+        showView('decks');
+        alert(`✅ Imported ${added} deck${added !== 1 ? 's' : ''}!${skipped > 0 ? '\n(' + skipped + ' skipped — already existed)' : ''}`);
+      } catch(err) {
+        alert('Could not read the file. Make sure it was exported from FlashMind.');
+      }
+      event.target.value = '';
+    };
+    reader.readAsText(file);
   }
 
   // ---- VIEWS ----
@@ -486,7 +383,7 @@
   function deleteDeck(id) {
     if (!confirm('Delete this deck?')) return;
     decks = decks.filter(d => d.id !== id);
-    scheduleSave();
+    save();
     renderDecks();
   }
 
@@ -536,7 +433,7 @@
     document.querySelectorAll('.card-num').forEach((el, i) => el.textContent = 'CARD ' + (i + 1));
   }
 
-  async function saveDeck() {
+  function saveDeck() {
     const name = document.getElementById('deck-name-input').value.trim();
     if (!name) { alert('Please enter a deck name.'); return; }
 
@@ -554,8 +451,7 @@
     } else {
       decks.push({ id: uid(), name, cards });
     }
-
-    await saveToCloud();
+    save();
     showView('decks');
   }
 
@@ -643,8 +539,7 @@
   }
 
   // ---- INIT ----
-  const savedUser = localStorage.getItem('flashmind_user');
-  if (savedUser) { currentUser = savedUser; bootApp(); }
+  renderDecks();
 </script>
 </body>
 </html>
